@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpRequest
 
 def dev(request):
     HTML = '''
@@ -51,6 +51,7 @@ def home(request):
     return HttpResponse(home_page)
 
 def sum(request):
+    print(request.GET.get('a'))
     return HttpResponse('<h1 align="center">SUM</h1>')
 urlpatterns = [
     path('admin/', admin.site.urls),
