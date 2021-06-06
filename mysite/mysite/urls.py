@@ -15,7 +15,37 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 
+def home(request):
+    HTML = '''
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>1.Dasturlash tillari quyidagilardir.</h1>
+        <ol type="1" start="10">
+        <li>C++</li> 
+        <li>Paskal</li> 
+        <li>Java</li>    
+        <li>Python</li>  
+        </ol>
+        <h2>2.Matn muharrirlari quyidagilardir.</h2>
+        <ol type="I" start="15">
+            <li>MS Word</li>
+            <li>WordAD</li>
+            <li>Notepad</li>
+            <li>Sublime</li>
+        </ol>
+    </body>
+    </html>
+    '''
+    return HttpResponse(HTML)
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home)
 ]
