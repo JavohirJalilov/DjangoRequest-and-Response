@@ -51,8 +51,9 @@ def home(request):
     return HttpResponse(home_page)
 
 def sum(request):
-    print(request.GET.get('a'))
-    return HttpResponse('<h1 align="center">SUM</h1>')
+    a = request.GET.get('a')
+    b = request.GET.get('b')
+    return HttpResponse(f'<h1 align="center">SUM: {int(a)+int(b)}</h1>')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dev/',dev),
