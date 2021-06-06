@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-def home(request):
+def dev(request):
     HTML = '''
     <!DOCTYPE html>
     <html lang="en">
@@ -45,7 +45,16 @@ def home(request):
     </html>
     '''
     return HttpResponse(HTML)
+
+def home(request):
+    home_page = '<h1 align="center">HOME PAGE</h1>'
+    return HttpResponse(home_page)
+
+def sum(request):
+    return HttpResponse('<h1 align="center">SUM</h1>')
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home)
+    path('dev/',dev),
+    path('',home),
+    path('sum/',sum)
 ]
