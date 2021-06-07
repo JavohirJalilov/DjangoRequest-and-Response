@@ -47,6 +47,8 @@ def dev(request):
     return HttpResponse(HTML)
 
 def home(request):
+    print(request.method)
+    print(request.body)
     home_page = '<h1 align="center">HOME PAGE</h1>'
     return HttpResponse(home_page)
 
