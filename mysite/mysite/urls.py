@@ -49,6 +49,7 @@ def dev(request):
 def home(request):
     print(request.method)
     print(request.body)
+    print(request.headers['HOST'])
     home_page = '<h1 align="center">HOME PAGE</h1>'
     return HttpResponse(home_page)
 
